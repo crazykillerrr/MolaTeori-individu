@@ -9,12 +9,12 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF121212), // Warna hitam gelap (tema Spotify)
+      backgroundColor: const Color(0xFF121212),
 
-      /// 🔹 AppBar di bagian atas layar
+      ///AppBar di bagian atas layar
       appBar: AppBar(
-        backgroundColor: Colors.transparent, // Transparan agar menyatu dengan background
-        elevation: 0, // Hilangkan bayangan bawah AppBar
+        backgroundColor: Colors.transparent, 
+        elevation: 0,
         title: const Text(
           "Profil Saya",
           style: TextStyle(
@@ -24,15 +24,15 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
 
-      /// 🔹 Body berisi konten utama profil
+      /// konten utama profil
       body: Padding(
         padding: const EdgeInsets.all(24.0), // Jarak sisi kiri-kanan
         child: Column(
           children: [
-            /// 🔸 Foto Profil (Avatar)
+            /// Foto Profil (Avatar)
             const CircleAvatar(
-              radius: 50, // Ukuran lingkaran
-              backgroundColor: Color(0xFF1DB954), // Warna hijau khas Spotify
+              radius: 50, 
+              backgroundColor: Color(0xFF1DB954),
               backgroundImage: NetworkImage(
                 "https://i.pravatar.cc/150?img=47", // Gambar profil dummy dari internet
               ),
@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            /// 🔸 Nama Pengguna
+           
             const Text(
               "Dhimas Dzulfajri",
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -48,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
 
             const SizedBox(height: 5),
 
-            /// 🔸 Email pengguna
+            ///
             const Text(
               "dhimas@example.com",
               style: TextStyle(color: Colors.white70),
@@ -56,12 +56,12 @@ class ProfileScreen extends StatelessWidget {
 
             const SizedBox(height: 30),
 
-            /// 🔹 Menu 1: Pengaturan Akun
+            /// Menu 1: Pengaturan Akun
             ListTile(
               leading: const Icon(Icons.settings, color: Color(0xFF1DB954)),
               title: const Text("Pengaturan Akun"),
               onTap: () {
-                // Aksi jika menu ditekan (bisa diarahkan ke halaman pengaturan akun)
+                //  diarahkan ke halaman pengaturan akun
               },
             ),
 
@@ -70,16 +70,15 @@ class ProfileScreen extends StatelessWidget {
               leading: const Icon(Icons.favorite, color: Color(0xFF1DB954)),
               title: const Text("Lagu Favorit"),
               onTap: () {
-                // Aksi jika menu ditekan (misalnya buka daftar lagu favorit user)
+                // buka daftar lagu favorit user
               },
             ),
 
-            const Spacer(), // Mendorong tombol logout ke bagian bawah layar
-
-            /// 🔹 Tombol Logout (keluar dari akun)
+            const Spacer(), 
+            ///Tombol Logout (keluar dari akun)
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.redAccent, // Warna merah untuk logout
+                backgroundColor: Colors.redAccent, 
                 padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 14),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
