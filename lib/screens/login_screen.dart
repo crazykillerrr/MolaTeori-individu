@@ -35,96 +35,112 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset:
+          true, // ✅ Mencegah overflow saat keyboard muncul (fix utama)
+
       /// Body adalah isi utama halaman login
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+      body: SafeArea(
+        // ✅ Menjaga tampilan agar tidak tertutup notch/status bar
+        child: SingleChildScrollView(
+          // ✅ Membuat layar bisa di-scroll jika konten terlalu panjang
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
 
-        /// Column digunakan untuk menata widget secara vertikal
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, // Pusatkan secara vertikal
-          children: [
-            /// 🔹 Logo aplikasi (ikon musik hijau)
-            const Icon(Icons.music_note, size: 90, color: Color(0xFF1DB954)),
+            /// Column digunakan untuk menata widget secara vertikal
+            child: Column(
+              mainAxisAlignment:
+                  MainAxisAlignment.center, // Pusatkan secara vertikal
+              children: [
+                /// 🔹 Logo aplikasi (ikon musik hijau)
+                const Icon(Icons.music_note,
+                    size: 90, color: Color(0xFF1DB954)),
 
-            const SizedBox(height: 20),
+                const SizedBox(height: 20),
 
-            /// 🔹 Judul aplikasi
-            const Text(
-              "Welcome to Music Match",
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
-
-            const SizedBox(height: 40),
-
-            /// 🔹 Input field untuk Email
-            TextField(
-              controller: _email, // Hubungkan ke controller email
-              decoration: InputDecoration(
-                hintText: "Email", // Placeholder teks
-                prefixIcon: const Icon(Icons.email), // Ikon di kiri field
-                filled: true, // Aktifkan warna latar belakang
-                fillColor: Colors.grey[900], // Warna abu gelap
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12), // Sudut melengkung
+                /// 🔹 Judul aplikasi
+                const Text(
+                  "Welcome to Music Match",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
-              ),
-            ),
 
-            const SizedBox(height: 15),
+                const SizedBox(height: 40),
 
-            /// 🔹 Input field untuk Password
-            TextField(
-              controller: _pass, // Hubungkan ke controller password
-              obscureText: true, // Sembunyikan teks input (••••)
-              decoration: InputDecoration(
-                hintText: "Password",
-                prefixIcon: const Icon(Icons.lock),
-                filled: true,
-                fillColor: Colors.grey[900],
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 25),
-
-            /// 🔹 Tombol Login utama
-            SizedBox(
-              width: double.infinity, // Lebar penuh
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1DB954), // Warna hijau Spotify
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // Sudut tombol melengkung
+                /// 🔹 Input field untuk Email
+                TextField(
+                  controller: _email, // Hubungkan ke controller email
+                  decoration: InputDecoration(
+                    hintText: "Email", // Placeholder teks
+                    prefixIcon:
+                        const Icon(Icons.email), // Ikon di kiri field
+                    filled: true, // Aktifkan warna latar belakang
+                    fillColor: Colors.grey[900], // Warna abu gelap
+                    border: OutlineInputBorder(
+                      borderRadius:
+                          BorderRadius.circular(12), // Sudut melengkung
+                    ),
                   ),
                 ),
-                onPressed: _login, // Jalankan fungsi login saat ditekan
-                child: const Text(
-                  "Login",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+
+                const SizedBox(height: 15),
+
+                /// 🔹 Input field untuk Password
+                TextField(
+                  controller: _pass, // Hubungkan ke controller password
+                  obscureText: true, // Sembunyikan teks input (••••)
+                  decoration: InputDecoration(
+                    hintText: "Password",
+                    prefixIcon: const Icon(Icons.lock),
+                    filled: true,
+                    fillColor: Colors.grey[900],
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                 ),
-              ),
-            ),
 
-            const SizedBox(height: 15),
+                const SizedBox(height: 25),
 
-            /// 🔹 Tombol teks untuk pindah ke halaman Sign Up
-            TextButton(
-              onPressed: () {
-                // Navigasi ke halaman daftar
-                Navigator.pushReplacementNamed(context, '/signup');
-              },
-              child: const Text(
-                "Belum punya akun? Daftar",
-                style: TextStyle(color: Colors.white70),
-              ),
+                /// 🔹 Tombol Login utama
+                SizedBox(
+                  width: double.infinity, // Lebar penuh
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          const Color(0xFF1DB954), // Warna hijau Spotify
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(12), // Sudut tombol melengkung
+                      ),
+                    ),
+                    onPressed:
+                        _login, // Jalankan fungsi login saat ditekan
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 15),
+
+                /// 🔹 Tombol teks untuk pindah ke halaman Sign Up
+                TextButton(
+                  onPressed: () {
+                    // Navigasi ke halaman daftar
+                    Navigator.pushReplacementNamed(context, '/signup');
+                  },
+                  child: const Text(
+                    "Belum punya akun? Daftar",
+                    style: TextStyle(color: Colors.white70),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
