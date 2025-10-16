@@ -28,26 +28,26 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     /// Scaffold berfungsi sebagai struktur dasar halaman Flutter (seperti “kerangka” layar)
     return const Scaffold(
-      backgroundColor: Color(0xFF121212), // Warna latar hitam khas Spotify
+      backgroundColor: Color(0xFF121212),
 
-      /// Body berisi konten utama — di sini logo dan nama aplikasi di tengah layar
+      /// di sini logo dan nama aplikasi di tengah layar
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, // Pusatkan secara vertikal
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             /// 🔹 Logo aplikasi
-            /// Menggunakan ikon musik dengan warna hijau (#1DB954) dan ukuran besar
+          
             Icon(Icons.music_note, size: 100, color: Color(0xFF1DB954)),
 
-            SizedBox(height: 20), // Jarak antara logo dan teks
+            SizedBox(height: 20), 
 
-            /// 🔹 Nama aplikasi di bawah logo
+            /// Nama aplikasi di bawah logo
             Text(
               "Music Match", // Nama aplikasi
               style: TextStyle(
-                color: Colors.white, // Warna putih agar kontras dengan latar
-                fontSize: 26, // Ukuran teks besar agar menarik perhatian
-                fontWeight: FontWeight.bold, // Huruf tebal agar terlihat kuat
+                color: Colors.white, 
+                fontSize: 26, 
+                fontWeight: FontWeight.bold, 
               ),
             ),
           ],

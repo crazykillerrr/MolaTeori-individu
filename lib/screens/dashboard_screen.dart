@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Halaman utama (Dashboard) — menampilkan daftar musik, kategori, dan mini player
+/// Halaman utama menampilkan daftar musik, kategori, dan mini player
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
@@ -23,7 +23,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     {"label": "Podcast"},
   ];
 
-  // Daftar playlist atau lagu yang terakhir diputar (grid 2 kolom)
+  // Daftar playlist atau lagu yang terakhir diputar (vertical scroll)
   final List<Map<String, String>> _recentPlay = [
     {
       "title": "pulang kampus",
@@ -75,9 +75,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF121212), // Warna background hitam 
+      backgroundColor: const Color(0xFF121212),
 
-      /// AppBar di atas (judul aplikasi dan ikon pengaturan)
+      /// AppBar di atas 
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -110,14 +110,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     itemCount: _categories.length,
                     itemBuilder: (context, index) {
-                      // Warna aktif untuk kategori "Musik"
+                      
                       final isActive = index == 1;
                       return Container(
                         margin: const EdgeInsets.only(right: 8),
                         padding: const EdgeInsets.symmetric(horizontal: 18),
                         decoration: BoxDecoration(
                           color: isActive
-                              ? const Color(0xFF1DB954) // Hijau Spotify
+                              ? const Color(0xFF1DB954) 
                               : Colors.grey[800],
                           borderRadius: BorderRadius.circular(24),
                         ),
@@ -193,7 +193,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                 const SizedBox(height: 25),
 
-                /// 🔹 Bagian “Lainnya Seperti Hindia”
+                /// Bagian “Lainnya Seperti Hindia”
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
@@ -206,7 +206,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 const SizedBox(height: 12),
 
-                /// 🔹 Daftar musik horizontal (rekomendasi)
+                /// Daftar musik horizontal (rekomendasi)
                 SizedBox(
                   height: 200,
                   child: ListView.builder(
@@ -257,7 +257,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
 
           /// Mini Player (Now Playing) di bagian bawah layar
-          /// Tidak menutupi konten lain karena diletakkan di dalam Column
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -310,12 +309,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
 
-      /// 🔹 Bottom Navigation Bar untuk navigasi antar halaman
+      /// Bottom Navigation Bar untuk navigasi antar halaman
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black,
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xFF1DB954), // Hijau Spotify
+        selectedItemColor: const Color(0xFF1DB954), 
         unselectedItemColor: Colors.white70,
         onTap: _onItemTapped, // Panggil fungsi saat item ditekan
         items: const [

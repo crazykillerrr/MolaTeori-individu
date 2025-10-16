@@ -44,14 +44,13 @@ class _SignupScreenState extends State<SignupScreen> {
 
         /// Column menata semua widget secara vertikal di tengah layar
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center, // Pusatkan secara vertikal
+          mainAxisAlignment: MainAxisAlignment.center, 
           children: [
-            /// 🔹 Ikon utama halaman Signup (ikon musik)
             const Icon(Icons.library_music, size: 90, color: Color(0xFF1DB954)),
 
             const SizedBox(height: 20),
 
-            /// 🔹 Judul halaman
+           
             const Text(
               "Buat Akun Baru",
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
@@ -59,23 +58,23 @@ class _SignupScreenState extends State<SignupScreen> {
 
             const SizedBox(height: 40),
 
-            /// 🔹 Input field Nama Lengkap
+            /// Input field Nama Lengkap
             TextField(
               controller: _name, // Controller untuk mengambil input teks
               decoration: InputDecoration(
                 hintText: "Nama Lengkap", // Placeholder teks
-                prefixIcon: const Icon(Icons.person), // Ikon di kiri
-                filled: true, // Aktifkan warna latar belakang
-                fillColor: Colors.grey[900], // Warna abu gelap
+                prefixIcon: const Icon(Icons.person), 
+                filled: true, 
+                fillColor: Colors.grey[900],
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12), // Sudut melengkung
+                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
             ),
 
             const SizedBox(height: 15),
 
-            /// 🔹 Input field Email
+           
             TextField(
               controller: _email,
               decoration: InputDecoration(
@@ -91,10 +90,10 @@ class _SignupScreenState extends State<SignupScreen> {
 
             const SizedBox(height: 15),
 
-            /// 🔹 Input field Password
+           
             TextField(
               controller: _pass,
-              obscureText: true, // Menyembunyikan karakter input
+              obscureText: true, 
               decoration: InputDecoration(
                 hintText: "Password",
                 prefixIcon: const Icon(Icons.lock),
@@ -108,18 +107,18 @@ class _SignupScreenState extends State<SignupScreen> {
 
             const SizedBox(height: 25),
 
-            /// 🔹 Tombol utama “Daftar” untuk membuat akun baru
+            /// Tombol utama “Daftar” untuk membuat akun baru
             SizedBox(
-              width: double.infinity, // Lebar penuh
+              width: double.infinity, 
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1DB954), // Warna hijau khas Spotify
+                  backgroundColor: const Color(0xFF1DB954), 
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), // Sudut tombol melengkung
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: _signup, // Jalankan fungsi signup saat ditekan
+                onPressed: _signup, 
                 child: const Text(
                   "Daftar",
                   style: TextStyle(
@@ -132,7 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
             const SizedBox(height: 15),
 
-            /// 🔹 Tombol teks untuk kembali ke halaman Login
+            ///Tombol teks untuk kembali ke halaman Login
             TextButton(
               onPressed: () {
                 // Navigasi kembali ke halaman login (route '/')
