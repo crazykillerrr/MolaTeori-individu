@@ -1,28 +1,34 @@
 import 'package:flutter/material.dart';
+import 'screens/splash_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
 import 'screens/dashboard_screen.dart';
-import 'screens/cart_screen.dart';
+import 'screens/profile_screen.dart';
 
 void main() {
-  runApp(const BaksoApp());
+  runApp(const SpotifyApp());
 }
 
-class BaksoApp extends StatelessWidget {
-  const BaksoApp({super.key});
+class SpotifyApp extends StatelessWidget {
+  const SpotifyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Bakso Mantap',
+      title: 'Music Match',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
-      initialRoute: '/',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        primaryColor: const Color(0xFF1DB954),
+        scaffoldBackgroundColor: const Color(0xFF121212),
+      ),
+      initialRoute: '/splash',
       routes: {
+        '/splash': (context) => const SplashScreen(),
         '/': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/dashboard': (context) => const DashboardScreen(),
-        '/cart': (context) => const CartScreen(),
+        '/profile': (context) => const ProfileScreen(),
       },
     );
   }
